@@ -1,0 +1,117 @@
+<article>
+  <p-toast />
+  <h1 class="text-5xl text-center">Register</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-control mb-3">
+      <p-inputGroup>
+        <p-inputGroupAddon>
+          <i class="pi pi-user"></i>
+        </p-inputGroupAddon>
+        <input pInputText placeholder="Full Name" formControlName="fullName" />
+      </p-inputGroup>
+      <div
+        class="error mt-2"
+        *ngIf="
+          registerForm.controls.fullName.touched &&
+          registerForm.controls.fullName.errors as fullNameErrors
+        "
+      >
+        <div *ngIf="fullNameErrors['required']">* Full name is required</div>
+        <div *ngIf="fullNameErrors['minlength']">* Should have minlength 3</div>
+      </div>
+    </div>
+    <div class="form-control mb-3">
+      <p-inputGroup>
+        <p-inputGroupAddon>
+          <i class="pi pi-envelope"></i>
+        </p-inputGroupAddon>
+        <input pInputText placeholder="Email" formControlName="email" />
+      </p-inputGroup>
+      <div
+        class="error mt-2"
+        *ngIf="
+          registerForm.controls.email.touched &&
+          registerForm.controls.email.errors as emailErrors
+        "
+      >
+        <div *ngIf="emailErrors['required']">* Email is required</div>
+        <div *ngIf="emailErrors['email']">* Please enter valid email</div>
+      </div>
+    </div>
+    <div class="form-control mb-3">
+      <p-inputGroup>
+        <p-inputGroupAddon>
+          <i class="pi pi-calendar"></i>
+        </p-inputGroupAddon>
+        <input pInputText type="date" formControlName="birthDate" />
+      </p-inputGroup>
+    </div>
+    <div class="form-control mb-3">
+      <p-inputGroup>
+        <p-inputGroupAddon>
+          <i class="pi pi-user-edit"></i>
+        </p-inputGroupAddon>
+        <input pInputText placeholder="Username" formControlName="username" />
+      </p-inputGroup>
+      <div
+        class="error mt-2"
+        *ngIf="
+          registerForm.controls.username.touched &&
+          registerForm.controls.username.errors as usernameErrors
+        "
+      >
+        <div *ngIf="usernameErrors['required']">* Username is required</div>
+        <div *ngIf="usernameErrors['minlength']">* Should have minlength 3</div>
+      </div>
+    </div>
+    <div class="form-control mb-3">
+      <p-inputGroup>
+        <p-inputGroupAddon>
+          <i class="pi pi-key"></i>
+        </p-inputGroupAddon>
+        <p-password
+          [toggleMask]="true"
+          formControlName="password"
+          [inputStyle]="{
+            width: '100%',
+            borderRadius: '0',
+            borderTopLeftRadius: '0'
+          }"
+          [style]="{ width: '100%' }"
+          [inputId]="'password'"
+          [feedback]="true"
+          promptLabel="Choose a password"
+          weakLabel="Too simple"
+          mediumLabel="Average complexity"
+          strongLabel="Complex password"
+        ></p-password>
+      </p-inputGroup>
+      <div
+        class="error mt-2"
+        *ngIf="
+          registerForm.controls.password.touched &&
+          registerForm.controls.password.errors as passwordErrors
+        "
+      >
+        <div *ngIf="passwordErrors['required']">* Password is required</div>
+        <div *ngIf="passwordErrors['minLength']">* Should have minlength 6</div>
+      </div>
+    </div>
+    <div class="form-control mb-3">
+      <p-checkbox formControlName="terms" [binary]="true" inputId="terms" />
+      <label for="terms" class="ml-2">I accept the terms and conditions </label>
+      <div
+        class="error mt-2"
+        *ngIf="
+          registerForm.controls.terms.touched &&
+          registerForm.controls.terms.errors as termsErrors
+        "
+      >
+        <div *ngIf="termsErrors['required'] || termsErrors['requiredTrue']">
+          * Please accept the terms of use
+        </div>
+      </div>
+    </div>
+    <p-button label="Sign Up" [rounded]="true" type="submit" />
+  </form>
+</article>

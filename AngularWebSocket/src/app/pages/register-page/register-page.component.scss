@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+.bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://www.medyathick.com/wp-content/uploads/2018/01/Abstract-Colors-PNG-Transparent-Image.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
