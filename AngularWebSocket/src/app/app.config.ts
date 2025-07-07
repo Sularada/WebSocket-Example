@@ -17,7 +17,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     MessageService,
-
     // provideSocketIo(config) 'v17 de yok'
   ]
 };

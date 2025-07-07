@@ -7,13 +7,12 @@ import { PasswordModule } from 'primeng/password';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
-import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { SupabaseService } from '../../services/supabase.service';
 @Component({
   selector: 'app-register-form',
   standalone: true,
-  imports: [ReactiveFormsModule, InputGroupModule, InputGroupAddonModule, InputTextModule, PasswordModule, CheckboxModule, ButtonModule, PasswordModule, FormsModule, CommonModule, ToastModule],
+  imports: [ReactiveFormsModule, InputGroupModule, InputGroupAddonModule, InputTextModule, PasswordModule, CheckboxModule, ButtonModule, PasswordModule, FormsModule, CommonModule],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss',
 })

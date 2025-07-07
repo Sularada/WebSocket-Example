@@ -1,1 +1,58 @@
-<p>login-form works!</p>
+<article>
+  <h1 class="text-5xl text-center">Register</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-control mb-3">
+      <p-inputGroup>
+        <p-inputGroupAddon>
+          <i class="pi pi-envelope"></i>
+        </p-inputGroupAddon>
+        <input pInputText placeholder="Email" formControlName="email" />
+      </p-inputGroup>
+      <div
+        class="error mt-2"
+        *ngIf="
+          loginForm.controls.email.touched &&
+          loginForm.controls.email.errors as emailErrors
+        "
+      >
+        <div *ngIf="emailErrors['required']">* Email is required</div>
+        <div *ngIf="emailErrors['email']">* Please enter valid email</div>
+      </div>
+    </div>
+
+    <div class="form-control mb-3">
+      <p-inputGroup>
+        <p-inputGroupAddon>
+          <i class="pi pi-key"></i>
+        </p-inputGroupAddon>
+        <p-password
+          [toggleMask]="true"
+          formControlName="password"
+          [inputStyle]="{
+            width: '100%',
+            borderRadius: '0',
+            borderTopLeftRadius: '0'
+          }"
+          [style]="{ width: '100%' }"
+          [inputId]="'password'"
+          [feedback]="true"
+          promptLabel="Choose a password"
+          weakLabel="Too simple"
+          mediumLabel="Average complexity"
+          strongLabel="Complex password"
+        ></p-password>
+      </p-inputGroup>
+      <div
+        class="error mt-2"
+        *ngIf="
+          loginForm.controls.password.touched &&
+          loginForm.controls.password.errors as passwordErrors
+        "
+      >
+        <div *ngIf="passwordErrors['required']">* Password is required</div>
+        <div *ngIf="passwordErrors['minLength']">* Should have minlength 6</div>
+      </div>
+    </div>
+    <p-button label="Sign Up" [rounded]="true" type="submit" />
+  </form>
+</article>

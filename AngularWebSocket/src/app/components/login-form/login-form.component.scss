@@ -1,0 +1,10 @@
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid green;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
