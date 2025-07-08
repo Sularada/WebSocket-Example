@@ -1,3 +1,12 @@
 :host {
   display: block;
 }
+// İçerik sola kaymalı
+.main-content {
+  padding: 2rem;
+  margin-left: 0;
+
+  @media (min-width: 798px) {
+    margin-left: 250px; // sidebar genişliği kadar
+  }
+}

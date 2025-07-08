@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
+import { SupabaseService } from './services/supabase.service';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,5 @@ import { ToastModule } from 'primeng/toast';
 })
 export class AppComponent {
   title = 'AngularWebSocket';
+
 }

@@ -1,0 +1,47 @@
+<article class="menu">
+  <p-button
+    *ngIf="isMobile"
+    (click)="openSidebar()"
+    icon="pi pi-bars"
+    [rounded]="true"
+    [outlined]="true"
+  />
+
+  <p-sidebar
+    [(visible)]="sidebarVisible"
+    position="left"
+    [modal]="isMobile"
+    [showCloseIcon]="isMobile"
+    [blockScroll]="isMobile"
+    [styleClass]="isMobile ? '' : 'fixed-sidebar'"
+    [baseZIndex]="10000"
+    (onHide)="closeSidebar()"
+  >
+    <ng-template pTemplate="header"> <h1>Chat App</h1> </ng-template>
+    <ng-template pTemplate="content">
+      <h3>Menü</h3>
+      <ul>
+        <li><a href="#">Ana Sayfa</a></li>
+        <li><a href="#">Hakkımızda</a></li>
+      </ul>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="flex align-items-top justify-content-between gap-2">
+        <p-chip
+          *ngIf="user | async as user"
+          [label]="user.full_name"
+          [image]="user.avatar_url"
+          alt="Avatar image"
+        />
+        <p-button
+          innerClass="logout-button"
+          (click)="openSidebar()"
+          icon="pi pi-sign-out"
+          [rounded]="true"
+          [outlined]="true"
+          size="small"
+        />
+      </div>
+    </ng-template>
+  </p-sidebar>
+</article>

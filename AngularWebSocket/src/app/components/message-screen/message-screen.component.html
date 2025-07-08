@@ -1,4 +1,6 @@
-<input type="text" (keyup.enter)="sendMessage()" [(ngModel)]="msg" />
-<button (click)="sendMessage()">Send</button>
-<button id="toggle-btn" (click)="toggleConnection()">Disconnect</button>
-<p *ngFor="let message of messages">{{ message }}</p>
+<div class="main-content">
+  <input type="text" (keyup.enter)="sendMessage()" [(ngModel)]="msg" />
+  <button (click)="sendMessage()">Send</button>
+  <button id="toggle-btn" (click)="toggleConnection()">Disconnect</button>
+  <p *ngFor="let message of messages">{{ message }}</p>
+</div>
